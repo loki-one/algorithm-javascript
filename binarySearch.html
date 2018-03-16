@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="en">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Simple Binary Search Algorithm">
+  </head>
+  <body>
+    <header>
+      <h2>Binary Search</h2>
+    </header>
+    <section>
+      <p>Check the console to use the Binary search algorithm</p>
+    </section>
+    <script>
+    var algo = (function () {
+      var binarySearch = function (inputArray, itemToBeSearched) {
+        var low = 0;
+        var high = inputArray.length - 1;
+
+        while (low <= high) {
+          var mid = Math.floor((low + high) / 2);
+          var guess = inputArray[mid];
+          if (guess === itemToBeSearched) {
+            return 'Found at ' + mid;
+          } else if (guess > itemToBeSearched) {
+            high = mid - 1;
+          } else  {
+            low = mid + 1;
+          }
+        }
+        return 'Not Found'
+      }
+
+      return {
+        binarySearch: binarySearch
+      }
+
+    })();
+    </script>
+  </body>
+</html>
