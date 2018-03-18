@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="en">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Selection Sort</title>
+    <meta name="description" content="Simple selection sort algorithm">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <header class="row">
+        <h2>Selection Sort</h2>
+      </header>
+      <section>
+        <p>Selection sort takes O(n*n) time.</p>
+        <p>It is not very fast as compared to Quick sort.</p>
+        <p>Examples of sorting with selection sort: </p>
+        <ul class="list-group">
+          <li class="list-group-item">Names in a phone book</li>
+          <li class="list-group-item">Travel dates</li>
+          <li class="list-group-item">Emails (newest to oldest)</li>
+        </ul>
+      </section>
+    </div>
+    <script>
+      var algo = (function () {
+
+        var findSmallestIndex = function (arr) {
+          var smallest = arr[0];
+          var smallestIndex = 0;
+          for (var i=1; i<arr.length; i++){
+            if (arr[i] < smallest) {
+              smallest = arr[i];
+              smallestIndex = i;
+            }
+          }
+          return smallestIndex;
+        }
+
+        var selectionSort = function (arr) {
+          var sortedArray = [];
+          while(arr.length){
+            var smallestIndex =  findSmallestIndex(arr);
+            sortedArray.push((arr.splice(smallestIndex,1))[0]);
+          }
+          return sortedArray;
+        }
+
+
+
+        return {
+          selectionSort: selectionSort
+        }
+
+      })();
+    </script>
+  </body>
+</html>
